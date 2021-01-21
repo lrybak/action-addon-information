@@ -59,12 +59,14 @@ runs:
           #path="${config%/}"
           config="${path}/config.json"
 
+          echo "::debug ::Test - ${config}"
+
           if [[ ! -f "${config}" ]]; then
             echo "::error ::Could not find add-on configuration file in ${path}"
             exit 1
           fi
         else
-          if ! find ./ -mindepth 2 -maxdepth 2 -name "config.json" | grep --silent .; then
+          if ! find ./ -mindepth 1 -maxdepth 2 -name "config.json" | grep --silent .; then
             echo "::error ::Could not find add-on configuration file"
             exit 1
           fi
