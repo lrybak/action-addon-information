@@ -71,7 +71,7 @@ runs:
             exit 1
           fi
 
-          config=$(find ./ -mindepth 2 -maxdepth 2 -name "config.json" -printf '%P\n')
+          config=$(find ./ -mindepth 1 -maxdepth 2 -name "config.json" -printf '%P\n')
         fi
 
         echo "::set-output name=config::${config}"
